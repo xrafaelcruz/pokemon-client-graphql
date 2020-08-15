@@ -296,3 +296,8 @@ function App() {
   );
 }
 ```
+
+VSCODE Apollo Graphql Extension:
+
+- Create the file `.env` and paste the content.
+- Create the file `apollo.config.js` and paste the content.

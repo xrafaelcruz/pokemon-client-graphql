@@ -264,3 +264,35 @@ cross-env NODE_ENV=production yarn build
 
 Will be create `public/sw.js` and `public/workbox-*.js`.
 Add both in `.gitignore`
+
+#### React Router
+
+```bash
+yarn add react-router-dom @types/react-router-dom
+```
+
+#### Apollo Graphql
+
+```bash
+yarn add @apollo/client graphql
+```
+
+Apollo Client:
+
+- Create the file `src/apollo/client.ts` and paste the content.
+
+ApolloProvider:
+In `App.tsx`
+
+```bash
+import { ApolloProvider } from '@apollo/client';
+import client from 'apollo/client';
+
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      ...
+    </ApolloProvider>
+  );
+}
+```

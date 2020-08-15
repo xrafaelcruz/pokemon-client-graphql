@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import * as S from './styles'
 
@@ -9,6 +10,7 @@ const Main = ({
   <S.Wrapper>
     <S.Title>{title}</S.Title>
     <S.Description>{description}</S.Description>
+    <Link to="/pokemons">Pokemons</Link>
   </S.Wrapper>
 )
 

@@ -34,4 +34,4 @@ yarn dev
 - `storybook`: runs storybook on `localhost:6006`
 - `build-storybook`: create the build version of storybook
 
-[How it was built](https://github.com/xrafaelcruz/boilerplate-nextjs/blob/master/HowItWasBuilt.md)
+[How it was built](https://github.com/xrafaelcruz/pokemon-client-graphql/blob/master/HowItWasBuilt.md)

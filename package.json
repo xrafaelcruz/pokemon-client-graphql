@@ -20,14 +20,15 @@
     }
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "yarn generate && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
     "test:watch": "yarn test --watch",
     "eject": "react-scripts eject",
     "lint": "eslint src/*.{ts,tsx} --max-warnings=0",
     "storybook": "start-storybook -s ./public -p 6006",
-    "build-storybook": "build-storybook -s ./public"
+    "build-storybook": "build-storybook -s ./public",
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "husky": {
     "hooks": {
@@ -35,7 +36,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*": [
+    "src/**/*.{ts,tsx}": [
       "yarn lint --fix"
     ]
   },
@@ -52,6 +53,8 @@
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
+    "@graphql-codegen/cli": "1.17.8",
+    "@graphql-codegen/typescript": "1.17.8",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
@@ -78,7 +81,10 @@
     "jest-styled-components": "^7.0.2",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "@graphql-codegen/typescript-operations": "1.17.8",
+    "@graphql-codegen/typescript-react-apollo": "1.17.8",
+    "@graphql-codegen/introspection": "1.17.8"
   },
   "eslintConfig": {
     "extends": "react-app"

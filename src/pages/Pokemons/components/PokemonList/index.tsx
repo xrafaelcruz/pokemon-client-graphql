@@ -1,5 +1,6 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client'
+import { Pokemon } from 'api-types'
 
 const POKEMONS = gql`
   query pokemons {
@@ -9,11 +10,6 @@ const POKEMONS = gql`
     }
   }
 `
-
-type Pokemon = {
-  id: string
-  name: string
-}
 
 const PokemonList = () => {
   const { loading, error, data } = useQuery(POKEMONS)

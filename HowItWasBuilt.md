@@ -301,3 +301,22 @@ VSCODE Apollo Graphql Extension:
 
 - Create the file `.env` and paste the content.
 - Create the file `apollo.config.js` and paste the content.
+
+#### Codegen (GraphQL Code Generator)
+
+```bash
+yarn add -D @graphql-codegen/cli
+yarn add -D @graphql-codegen/typescript
+```
+
+- Create the file `apollo/graphql/{queryName}.graphql` and paste the content.
+- Create the file `codegen.yml` and paste the content.
+
+In `package.json`
+
+```bash
+"scripts": {
+  ...,
+  "generate": "graphql-codegen --config codegen.yml"
+},
+```

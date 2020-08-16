@@ -307,6 +307,8 @@ VSCODE Apollo Graphql Extension:
 ```bash
 yarn add -D @graphql-codegen/cli
 yarn add -D @graphql-codegen/typescript
+yarn add -D @graphql-codegen/typescript-operations
+yarn add -D @graphql-codegen/typescript-react-apollo
 ```
 
 - Create the file `apollo/graphql/{queryName}.graphql` and paste the content.

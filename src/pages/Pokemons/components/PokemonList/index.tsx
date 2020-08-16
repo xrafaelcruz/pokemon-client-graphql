@@ -1,27 +1,23 @@
 import React from 'react'
-import { useQuery, gql } from '@apollo/client'
-import { Pokemon } from 'api-types'
-
-const POKEMONS = gql`
-  query pokemons {
-    pokemons {
-      id
-      name
-    }
-  }
-`
+import { usePokemonsQuery } from 'api-types'
 
 const PokemonList = () => {
-  const { loading, error, data } = useQuery(POKEMONS)
+  const { loading, error, data } = usePokemonsQuery()
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
 
-  return data.pokemons.map(({ id, name }: Pokemon) => (
-    <div key={id}>
-      <p>{name}</p>
-    </div>
-  ))
+  const pokemons = data && data.pokemons
+
+  return (
+    <>
+      {pokemons?.map((pokemon) => (
+        <div key={pokemon?.id}>
+          <p>{pokemon?.name}</p>
+        </div>
+      ))}
+    </>
+  )
 }
 
 export default PokemonList

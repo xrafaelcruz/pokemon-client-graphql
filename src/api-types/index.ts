@@ -1,3 +1,5 @@
+import { gql } from '@apollo/client'
+import * as Apollo from '@apollo/client'
 export type Maybe<T> = T | null
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K]
@@ -89,3 +91,63 @@ export enum CacheControlScope {
   Public = 'PUBLIC',
   Private = 'PRIVATE'
 }
+
+export type PokemonsQueryVariables = Exact<{ [key: string]: never }>
+
+export type PokemonsQuery = { __typename?: 'Query' } & {
+  pokemons?: Maybe<
+    Array<Maybe<{ __typename?: 'Pokemon' } & Pick<Pokemon, 'id' | 'name'>>>
+  >
+}
+
+export const PokemonsDocument = gql`
+  query pokemons {
+    pokemons {
+      id
+      name
+    }
+  }
+`
+
+/**
+ * __usePokemonsQuery__
+ *
+ * To run a query within a React component, call `usePokemonsQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePokemonsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePokemonsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function usePokemonsQuery(
+  baseOptions?: Apollo.QueryHookOptions<PokemonsQuery, PokemonsQueryVariables>
+) {
+  return Apollo.useQuery<PokemonsQuery, PokemonsQueryVariables>(
+    PokemonsDocument,
+    baseOptions
+  )
+}
+export function usePokemonsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    PokemonsQuery,
+    PokemonsQueryVariables
+  >
+) {
+  return Apollo.useLazyQuery<PokemonsQuery, PokemonsQueryVariables>(
+    PokemonsDocument,
+    baseOptions
+  )
+}
+export type PokemonsQueryHookResult = ReturnType<typeof usePokemonsQuery>
+export type PokemonsLazyQueryHookResult = ReturnType<
+  typeof usePokemonsLazyQuery
+>
+export type PokemonsQueryResult = Apollo.QueryResult<
+  PokemonsQuery,
+  PokemonsQueryVariables
+>

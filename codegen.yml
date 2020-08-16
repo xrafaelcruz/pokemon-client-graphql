@@ -4,4 +4,9 @@ documents: 'src/**/*.graphql'
 generates:
   src/api-types/index.ts:
     plugins:
-      - 'typescript'
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+
+    config:
+      withHooks: true
